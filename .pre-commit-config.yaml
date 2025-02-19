@@ -25,14 +25,12 @@ repos:
       - id: djlint-reformat-django
         files: "\\.html"
         types_or: ['html']
-        # it is necessary to exclude src/literev/templates/tags because of the
         # following issue:
         #   - https://github.com/Riverside-Healthcare/djLint/issues/703
         exclude: ".git"
       - id: djlint-django
         files: "\\.html"
         types_or: ['html']
-        # it is necessary to exclude src/literev/templates/tags because of the
         # following issue:
         #   - https://github.com/Riverside-Healthcare/djLint/issues/703
         exclude: ".git"
@@ -52,7 +50,7 @@ repos:
       name: ruff-linter
       entry: ruff check
       language: system
-      exclude: "docs/|migrations/.*|literev/urls.py"
+      exclude: "docs/|migrations/.*"
       pass_filenames: true
       types:
         - python
