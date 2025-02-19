@@ -20,24 +20,17 @@ jobs:
         shell: bash -el {0}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+      - name: Checkout Code Repository
+        uses: actions/checkout@v4
 
-      - uses: mamba-org/setup-micromamba@v1
+      - uses: conda-incubator/setup-miniconda@v3
         with:
+          miniconda-version: "latest"dev
           environment-file: conda/release.yaml
-          condarc-file: .github/workflows/.condarc
-          micromamba-binary-path: ${{ runner.temp }}/bin/micromamba
-          micromamba-root-path: ${{ runner.temp }}/micromamba
-          environment-name: pydantic-to-django-model-release
-          generate-run-shell: false
-          create-args: -v
-          init-shell: >-
-            bash
-          # cache-environment: true
-          post-cleanup: 'all'
+          channels: conda-forge,nodefaults
+          activate-environment: pydantic-to-django-model-release
+          auto-update-conda: true
+          conda-solver: libmamba
 
       - name: Create file with environment variables
         run: touch .env
