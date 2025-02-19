@@ -4,7 +4,7 @@ channels:
   - conda-forge
 dependencies:
   - nodejs >=18
-  - python 3.10.*
+  - python 3.12.*
   - poetry >=1.5
   - pip:
     - makim==1.10.0
