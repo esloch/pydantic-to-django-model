@@ -7,7 +7,7 @@ authors = [
   {name = "Ivan Ogasawara", email = "ivan.ogasawara@gmail.com"}
 ]
 license = "MIT"
-requires-python = ">=3.9,<4"
+requires-python = ">=3.10,<4"
 [build-system]
 requires = ["poetry-core>=2", "poetry>=2"]
 build-backend = "poetry.core.masonry.api"
@@ -100,6 +100,7 @@ select = [
   "YTT", # flake8-2020
   "RUF", # Ruff-specific rules
   "I001",  # isort
+  "I", # Enables import sorting checks
 ]
 fixable = ["I001"]
 
@@ -107,17 +108,13 @@ fixable = ["I001"]
 convention = "numpy"
 
 [tool.ruff.lint.isort]
-# Use a single line between direct and from import
+force-sort-within-sections = true
 lines-between-types = 1
 
 [tool.ruff.format]
 quote-style = "single"
 
 [tool.vulture]
-exclude = ["tests"]
-ignore_decorators = []
-ignore_names = []
-make_whitelist = true
 min_confidence = 80
 paths = ["./"]
 sort_by_size = true
