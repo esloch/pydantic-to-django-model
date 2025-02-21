@@ -1,9 +1,8 @@
 """Tests for pydantic_to_django_model package."""
 
-import pytest
-
 from hypothesis import given
 from hypothesis import strategies as st
+import pytest
 
 
 @pytest.fixture
