@@ -1,13 +1,14 @@
 """Main module."""
 
-from pathlib import Path
 import re
 import sys
+
+from pathlib import Path
 from typing import Union, get_args, get_origin
 
 import django
+
 from django.db import models
-from fhir.resources.medication import Medication as FHIRMedication
 from pydantic import BaseModel
 
 # settings.configure(default_settings="seconddx.settings", DEBUG=True)
@@ -114,10 +115,3 @@ def pydantic_to_django(
 
     # Create Django model dynamically
     return type(model_name, (models.Model,), fields)
-
-
-# Generate Django model from FHIR Medication Pydantic model
-MedicationModel = pydantic_to_django(FHIRMedication, 'Medication')
-
-# Example usage
-print(MedicationModel.__name__)  # Output: Medication

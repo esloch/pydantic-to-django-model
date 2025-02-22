@@ -1,22 +1,29 @@
 [project]
-name = "pydantic-to-django-model"
+name = "pydantic-to-djmodel"
 version = "0.1.0"  # semantic-release
-description = "pydantic-to-django-model is a Python library that converts Pydantic BaseModels into Django ORM models."
+description = "pydantic-to-djmodel is a Python library that converts Pydantic BaseModels into Django ORM models."
 readme = "README.md"
 authors = [
   {name = "Ivan Ogasawara", email = "ivan.ogasawara@gmail.com"}
 ]
 license = "MIT"
 requires-python = ">=3.10,<4"
+dependencies = [
+  "typeguard (>=4.0)",
+  "eval-type-backport (>=0.2.2)",
+  "pydantic (>=2.10.6)",
+  "django (>=5)",
+]
+
 [build-system]
 requires = ["poetry-core>=2", "poetry>=2"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 packages = [
-  {include = "pydantic_to_django_model", from="src"},
+  {include = "pydantic_to_djmodel", from="src"},
 ]
-include = ["src/pydantic_to_django_model/py.typed"]
+include = ["src/pydantic_to_djmodel/py.typed"]
 
 exclude = [
   ".git/*",
@@ -25,6 +32,7 @@ exclude = [
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=7.3.2"
+pytest-django = ">=4.10.0,<5.0.0"
 pytest-cov = ">=4.1.0"
 hypothesis = ">=6.0"
 coverage = ">=7.2.7"
@@ -39,7 +47,6 @@ vulture = ">=2.7"
 mccabe = ">=0.6.1"
 ipython = "<8"
 ipykernel = ">=6.0.0"
-
 Jinja2 = ">=3.1.2"
 mkdocs = ">=1.4.3"
 mkdocs-exclude = ">=1.0.2"
@@ -52,12 +59,9 @@ mkdocs-gen-files = ">=0.5.0"
 makim = "1.20.0"
 # 'PosixPath' object has no attribute 'endswith'
 virtualenv = "<=20.25.1"
+fhir-resources = ">=8"
 
 
-
-[tool.poetry.dependencies]
-typeguard = ">=4.0"
-eval-type-backport = "^0.2.2"
 [tool.bandit]
 exclude_dirs = ["tests"]
 targets = "./"
@@ -83,6 +87,7 @@ exclude = ["scripts/"]
 testpaths = [
     "tests",
 ]
+DJANGO_SETTINGS_MODULE = "pydantic_to_djmodel._settings"
 
 [tool.ruff]
 line-length = 79
@@ -91,6 +96,7 @@ src = ["./"]
 exclude = [
   'docs',
 ]
+fix = true
 
 [tool.ruff.lint]
 select = [
@@ -108,7 +114,6 @@ fixable = ["I001"]
 convention = "numpy"
 
 [tool.ruff.lint.isort]
-force-sort-within-sections = true
 lines-between-types = 1
 
 [tool.ruff.format]
