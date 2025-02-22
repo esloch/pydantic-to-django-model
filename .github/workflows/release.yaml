@@ -35,11 +35,6 @@ jobs:
       - name: Create file with environment variables
         run: touch .env
 
-      - name: Check directory structure
-        run: |
-          pwd
-          ls -la
-
       - name: Install dependencies
         run: poetry install
 
