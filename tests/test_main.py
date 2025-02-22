@@ -3,7 +3,6 @@
 import pytest
 
 from fhir.resources.medication import Medication as FHIRMedication
-
 from pydantic_to_djmodel.core import pydantic_to_django
 
 
@@ -22,9 +21,11 @@ def response_hypothesis() -> bool:
 def test_import() -> None:
     """Test import."""
     import pydantic_to_djmodel
+
     assert pydantic_to_djmodel
 
     from pydantic_to_djmodel import core
+
     assert core
 
 
@@ -36,4 +37,3 @@ def test_with_fhir() -> None:
 
     # Example usage
     print(MedicationModel.__name__)  # Output: Medication
-

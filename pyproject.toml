@@ -96,6 +96,7 @@ src = ["./"]
 exclude = [
   'docs',
 ]
+fix = true
 
 [tool.ruff.lint]
 select = [
@@ -113,7 +114,6 @@ fixable = ["I001"]
 convention = "numpy"
 
 [tool.ruff.lint.isort]
-force-sort-within-sections = true
 lines-between-types = 1
 
 [tool.ruff.format]

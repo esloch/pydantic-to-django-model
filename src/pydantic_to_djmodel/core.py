@@ -1,11 +1,13 @@
 """Main module."""
 
-from pathlib import Path
 import re
 import sys
+
+from pathlib import Path
 from typing import Union, get_args, get_origin
 
 import django
+
 from django.db import models
 from pydantic import BaseModel
 
@@ -113,4 +115,3 @@ def pydantic_to_django(
 
     # Create Django model dynamically
     return type(model_name, (models.Model,), fields)
-
