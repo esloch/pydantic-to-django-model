@@ -1,5 +1,5 @@
-site_name: pydantic-to-django-model
-site_url: https://pydantic-to-django-model.com
+site_name: pydantic-to-djmodel
+site_url: https://pydantic-to-djmodel.com
 repo_url: https://github.com/MYORG/MYREPO
 docs_dir: ./docs/
 site_dir: ./build/
@@ -113,7 +113,7 @@ markdown_extensions:
   - tables
   - toc
 extra:
-  project_name: "pydantic-to-django-model"
+  project_name: "pydantic-to-djmodel"
   team:
     - name: "Active maintainers"
       members:
@@ -137,4 +137,4 @@ extra:
       icon: :material-cancel:{ .cancel }
       description: Unlikely to ever be supported or no upstream support.
 
-copyright: "Copyright &copy; 2022, pydantic-to-django-model Team"
+copyright: "Copyright &copy; 2022, pydantic-to-djmodel Team"

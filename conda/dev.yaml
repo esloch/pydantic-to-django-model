@@ -1,4 +1,4 @@
-name: pydantic-to-django-model
+name: pydantic-to-djmodel
 channels:
   - nodefaults
   - conda-forge

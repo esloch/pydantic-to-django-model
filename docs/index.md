@@ -1,6 +1,6 @@
 ![LOGO](/images/logo.png)
 
-# pydantic-to-django-model
+# pydantic-to-djmodel
 
 [![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)](https://python-poetry.org/)![Mkdocs](https://img.shields.io/badge/Documentation%20engine-Mkdocs-orange)
 ![Conda](https://img.shields.io/badge/Virtual%20environment-conda-brightgreen?logo=anaconda)[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
@@ -20,11 +20,11 @@
 ![Makim](https://img.shields.io/badge/Automation%20task-Makim-blue)
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-CI-blue?logo=githubactions)
 
-pydantic-to-django-model is a Python library that converts Pydantic BaseModels
+pydantic-to-djmodel is a Python library that converts Pydantic BaseModels
 into Django ORM models.
 
 - License: MIT
-- Documentation: https://pydantic-to-django-model.com
+- Documentation: https://pydantic-to-djmodel.com
 
 ## Features
 

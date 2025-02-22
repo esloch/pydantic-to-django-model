@@ -1,4 +1,4 @@
-name: pydantic-to-django-model-release
+name: pydantic-to-djmodel-release
 channels:
   - nodefaults
   - conda-forge

@@ -1,8 +1,10 @@
-"""Tests for pydantic_to_django_model package."""
+"""Tests for pydantic_to_djmodel package."""
 
-from hypothesis import given
-from hypothesis import strategies as st
 import pytest
+
+from fhir.resources.medication import Medication as FHIRMedication
+
+from pydantic_to_djmodel.core import pydantic_to_django
 
 
 @pytest.fixture
@@ -17,12 +19,21 @@ def response_hypothesis() -> bool:
     return True
 
 
-def test_content_pytest() -> None:
-    """Test with pytest."""
-    assert True is True
+def test_import() -> None:
+    """Test import."""
+    import pydantic_to_djmodel
+    assert pydantic_to_djmodel
+
+    from pydantic_to_djmodel import core
+    assert core
 
 
-@given(st.text().filter(lambda s: s != ''))
-def test_content_hypothesis(response_hypothesis: bool) -> None:
+@pytest.mark.skip
+def test_with_fhir() -> None:
     """Test with pytest + hypothesis."""
-    assert response_hypothesis
+    # Generate Django model from FHIR Medication Pydantic model
+    MedicationModel = pydantic_to_django(FHIRMedication, 'Medication')
+
+    # Example usage
+    print(MedicationModel.__name__)  # Output: Medication
+
