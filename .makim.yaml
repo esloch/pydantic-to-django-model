@@ -1,0 +1,72 @@
+backend: bash
+env-file: .env
+env:
+  DOCKER_BUILDKIT: "0"
+groups:
+  clean:
+    tasks:
+      tmp:
+        help: remove build artifacts, compiled files, and cache
+        backend: bash
+        run: |
+          find . -name '*.egg-info' -exec rm -rf {} +
+          find . -name '*.egg' -exec rm -f {} +
+          find . -name '*.pyc' -exec rm -f {} +
+          find . -name '*.pyo' -exec rm -f {} +
+          find . -name '__pycache__' -exec rm -rf {} +
+          find . -name '*~' -exec rm -f {} +
+          rm -rf build/
+          rm -rf dist/
+          rm -rf .eggs/
+          rm -f .coverage
+          rm -rf htmlcov/
+          rm -rf .pytest_cache
+          rm -rf .mypy_cache
+          rm -rf .ruff_cache
+
+  tests:
+    tasks:
+      lint:
+        help: Run linter tools
+        hooks:
+          pre-run:
+            - task: clean.tmp
+        run: |
+          pre-commit install
+          pre-commit run --all-files --verbose
+
+  docs:
+    tasks:
+      build:
+        help: build documentation
+        run: |
+          mkdocs build --config-file mkdocs.yaml
+
+      preview:
+        help: preview documentation page locally
+        run: mkdocs serve --watch docs --config-file mkdocs.yaml
+
+  release:
+    vars:
+      app: |
+        npx --yes \
+          -p semantic-release \
+          -p conventional-changelog-conventionalcommits \
+          -p "@semantic-release/commit-analyzer" \
+          -p "@semantic-release/release-notes-generator" \
+          -p "@semantic-release/changelog" \
+          -p "@semantic-release/exec" \
+          -p "@semantic-release/github" \
+          -p "@semantic-release/git" \
+          -p "semantic-release-replace-plugin@1.2.7" \
+          semantic-release
+
+    tasks:
+      ci:
+        help: run semantic release on CI
+        run: ${{ vars.app }} --ci
+
+      dry:
+        help: run semantic release in dry-run mode
+        run: |
+          ${{ vars.app }} --dry-run
