@@ -1,1 +1,1 @@
-"""Unit test package for pydantic-to-djmodel."""
+"""Unit test package for pydantic-djmodel."""

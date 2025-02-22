@@ -2,13 +2,13 @@
 
 ## Stable release
 
-To install pydantic-to-djmodel, run this command in your terminal:
+To install pydantic-djmodel, run this command in your terminal:
 
 ```bash
-pip install pydantic-to-djmodel
+pip install pydantic-djmodel
 ```
 
-This is the preferred method to install pydantic-to-djmodel, as it will
+This is the preferred method to install pydantic-djmodel, as it will
 always install the most recent stable release.
 
 If you don't have [pip](https://pip.pypa.io) installed, this
@@ -17,7 +17,7 @@ can guide you through the process.
 
 ## From sources
 
-The sources for pydantic-to-djmodel can be downloaded from the
+The sources for pydantic-djmodel can be downloaded from the
 [Github repo]().
 
 You can either clone the public repository:
