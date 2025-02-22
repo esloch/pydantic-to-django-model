@@ -1,4 +1,4 @@
-"""pydantic-to-djmodel."""
+"""pydantic-djmodel."""
 
 from importlib import metadata as importlib_metadata
 

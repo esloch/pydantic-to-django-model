@@ -1,7 +1,7 @@
 [project]
-name = "pydantic-to-djmodel"
+name = "pydantic-djmodel"
 version = "0.1.0"  # semantic-release
-description = "pydantic-to-djmodel is a Python library that converts Pydantic BaseModels into Django ORM models."
+description = "pydantic-djmodel is a Python library that converts Pydantic BaseModels into Django ORM models."
 readme = "README.md"
 authors = [
   {name = "Ivan Ogasawara", email = "ivan.ogasawara@gmail.com"}
@@ -21,9 +21,9 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 packages = [
-  {include = "pydantic_to_djmodel", from="src"},
+  {include = "pydantic_djmodel", from="src"},
 ]
-include = ["src/pydantic_to_djmodel/py.typed"]
+include = ["src/pydantic_djmodel/py.typed"]
 
 exclude = [
   ".git/*",
@@ -87,7 +87,7 @@ exclude = ["scripts/"]
 testpaths = [
     "tests",
 ]
-DJANGO_SETTINGS_MODULE = "pydantic_to_djmodel._settings"
+DJANGO_SETTINGS_MODULE = "pydantic_djmodel._settings"
 
 [tool.ruff]
 line-length = 79
