@@ -40,16 +40,14 @@ jobs:
         run: npm -g update npm
 
       - name: Run semantic release (for tests)
-        if: ${{ github.event_name != 'workflow_dispatch' }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: makim release.dry
-
-      - name: Release command
         if: ${{ github.event_name == 'workflow_dispatch' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+        run: makim release.dry
+
+      - name: Release command
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
           makim release.ci
 
