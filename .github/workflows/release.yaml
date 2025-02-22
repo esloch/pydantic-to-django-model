@@ -7,13 +7,11 @@ on:
     branches: [ main ]
 
 jobs:
-  check-branch:
-    if: ${{ github.event_name == 'pull_request' }}
+  release:
+    if: ${{ !github.event.pull_request.draft }}
+    name: Release
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    concurrency:
-      group: check-pr-${{ github.ref }}
-      cancel-in-progress: true
 
     defaults:
       run:
